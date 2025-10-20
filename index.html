@@ -388,7 +388,7 @@
             <div class="intro">
                 <h2>测试说明</h2>
                 <p>本测试旨在帮助您了解自己的性压抑指数(Sexual Repression Level, SRL)。请根据您的真实感受和经历回答以下问题。</p>
-                <p>测试包含31个问题，大约需要5-8分钟完成。请选择一个最符合您情况的选项。</p>
+                <p>测试包含30个问题，大约需要3-5分钟完成。请选择一个最符合您情况的选项。</p>
                 <p class="disclaimer">注意：本测试结果仅供参考，不能替代专业心理咨询或医疗建议。</p>
             </div>
             
@@ -960,10 +960,18 @@
             const resultSection = document.getElementById('result-section');
             const questionsSection = document.getElementById('questions-section');
             const submitBtn = document.getElementById('submit-btn');
+            const introSection = document.querySelector('.intro');
+            const paginationControls = document.querySelector('.pagination-controls');
+            const progressIndicator = document.getElementById('progress-indicator');
+            const btnContainer = document.querySelector('.btn-container');
             
-            // 隐藏问题和提交按钮，显示结果
+            // 隐藏所有做题相关元素，只显示结果
             questionsSection.style.display = 'none';
             submitBtn.style.display = 'none';
+            introSection.style.display = 'none';
+            paginationControls.style.display = 'none';
+            progressIndicator.style.display = 'none';
+            btnContainer.style.display = 'none';
             resultSection.style.display = 'block';
             
             // 设置总体分数
@@ -1124,8 +1132,13 @@
             // 隐藏结果部分
             document.getElementById('result-section').style.display = 'none';
             
-            // 显示问题部分
+            // 显示所有做题相关元素
             document.getElementById('questions-section').style.display = 'block';
+            document.querySelector('.intro').style.display = 'block';
+            document.getElementById('submit-btn').style.display = 'block';
+            document.querySelector('.pagination-controls').style.display = 'flex';
+            document.getElementById('progress-indicator').style.display = 'flex';
+            document.querySelector('.btn-container').style.display = 'block';
             
             // 加载第一页问题
             loadPage(currentPage);
